@@ -1,0 +1,14 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'flatpickr/dist/flatpickr.css';
+
+@layer components {
+    
+}
+
+* {
+    scroll-behavior: smooth;
+    @apply transition-all;
+}

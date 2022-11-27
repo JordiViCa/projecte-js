@@ -1,0 +1,29 @@
+{
+  "name": "projecte",
+  "version": "1.0.0",
+  "description": "Projecte de 2n DAW - M6 - UF2",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build -i main.scss -o css/style.css",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JordiViCa/projecte-js.git"
+  },
+  "author": "JordiViCa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordiViCa/projecte-js/issues"
+  },
+  "homepage": "https://github.com/JordiViCa/projecte-js#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "flatpickr": "^4.6.13",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.3",
+    "tiny-slider": "^2.9.4",
+    "typescript": "^4.9.3"
+  }
+}

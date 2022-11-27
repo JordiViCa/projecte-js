@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tiny-slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" id="theme" href="css/default.css">
+    <!-- JS -->
+    <script type="module" src="js/main.js"></script>
+    <title>Projecte UF-2 M6</title>
+</head>
+<body class="bg-fons h-screen flex flex-col">
+    <div class="w-[95%] md:w-[70%] bg-gray-50 mx-auto rounded-md my-10 py-10 px-2 md:px-10">
+        <header class="flex py-10">
+            <h1 class="text-white text-4xl font-bold py-6 px-10 bg-titol uppercase">Projecte UF-2 M6</h1>
+        </header>
+        <nav id="navBar" class="flex flex-wrap my-10 bg-gray-400">
+            <div id="nmain" class="px-8 py-4 bg-gray-400 hover:bg-gray-300 transition-all w-1/2 sm:w-auto text-center sm:text-start text-xl text-white hover:text-black font-medium">INICI</div>
+            <div id="nrellotge" class="px-8 py-4 bg-gray-400 hover:bg-gray-300 transition-all w-1/2 sm:w-auto text-center sm:text-start text-xl text-white hover:text-black font-medium">RELLOTGE</div>
+            <div id="nregistre" class="px-8 py-4 bg-gray-400 hover:bg-gray-300 transition-all w-1/2 sm:w-auto text-center sm:text-start text-xl text-white hover:text-black font-medium">REGISTRE</div>
+            <div id="njoc" class="px-8 py-4 bg-gray-400 hover:bg-gray-300 transition-all w-1/2 sm:w-auto text-center sm:text-start text-xl text-white hover:text-black font-medium">JOC</div>
+        </nav>
+        <main id="main">
+            <div class="md:px-20 lg:px-52 mb-20">
+                <div class="displaySlider" id="displaySlider">
+                    <div>
+                        <img class="mx-auto" src="/assets/img/flower.png" alt="The beauty of a flower">
+                        <p class="text-center text-xl py-2 font-medium">The beauty of a flower</p>
+                    </div>
+                    <div>
+                        <img class="mx-auto" src="/assets/img/superman.png" alt="A detailed portrait of superman">
+                        <p class="text-center text-xl py-2 font-medium">A detailed portrait of superman</p>
+                    </div>
+                    <div>
+                        <img class="mx-auto" src="/assets/img/city.png" alt="A detailed city on a sunset, anime style">
+                        <p class="text-center text-xl py-2 font-medium">A detailed city on a sunset, anime style</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-20">
+                <h1 class="text-xl md:text-3xl font-medium">GENERADOR DE TEXT</h1>
+                <div class="p-5">
+                    <div class="flex flex-col mb-5">
+                        <div class="flex flex-wrap flex-col">
+                            <label class="text-lg w-full" for="textInputTXT">Text a completar / preguntar</label>
+                            <input class="w-full p-2 bg-gray-100" type="text" name="textInputTXT" id="textInputTXT" placeholder="Describe me ...">
+                        </div>
+                        <div class="w-full mt-2">
+                            <button class="w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-all" id="sendInputToTXT">Send Input</button>
+                        </div>
+                    </div>
+                    <textarea class="w-full min-h-[8rem] h-32 border border-black rounded-lg p-2" placeholder="Sortida" id="textOutput"></textarea>
+                    <div><button disabled id="sendTextToImg" class="mt-2 px-4 py-2 bg-gray-200 disabled:hover:bg-gray-200 hover:bg-gray-300 rounded-md transition-all disabled:opacity-50">Enviar text al generador d'imatges</button></div>
+                </div>
+            </div>
+            <div class="mb-20">
+                <h1 class="text-xl md:text-3xl font-medium">GENERADOR D'IMATGES</h1>
+                <div class="p-5">
+                    <div class="flex flex-col mb-5">
+                        <div class="flex flex-col">
+                            <label class="text-lg w-full" for="textInputIMG">Text per generar l'imatge</label>
+                            <input class="w-full p-2 bg-gray-100" type="text" name="textInputIMG" id="textInputIMG" placeholder="Portrait of Elon Musk...">
+                        </div>
+                        <div class="w-full mt-2">
+                            <button class="w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-all" id="sendInputToIMG">Send Input</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:px-20 lg:px-52">
+                    <div class="openAi" id="openAi">
+                        <div class="bg-slate-200 relative"><p class="text-center text-lg sm:text-xl lg:text-4xl py-[50px] sm:py-[100px] lg:py-[200px] font-medium">GENERATE YOUR OWN IMAGES</p></div>
+                        <div class="bg-slate-200 relative"><p class="text-center text-lg sm:text-xl lg:text-4xl py-[50px] sm:py-[100px] lg:py-[200px] font-medium">GENERATE YOUR OWN IMAGES</p></div>
+                        <div class="bg-slate-200 relative"><p class="text-center text-lg sm:text-xl lg:text-4xl py-[50px] sm:py-[100px] lg:py-[200px] font-medium">GENERATE YOUR OWN IMAGES</p></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <main id="rellotge" class="hidden">
+            <div class="flex">
+                <div class="md:text-9xl text-4xl font-medium mx-auto my-20" id="rell"></div>
+            </div>
+        </main>
+        <main id="registre" class="mx-auto bg-gray-100 py-10 rounded-md shadow-md hidden">
+            <div class="w-3/4 mx-auto">
+                <div class="flex mb-2 flex-col">
+                    <label required class="text-lg font-medium flex w-full justify-between" for="name">
+                        <span>Nom <span class="text-red-500">*</span></span>
+                        <span id="nameError" class="ml-auto text-red-500 text-sm opacity-0 font-bold" style="transition-duration: 300ms;"> Nom invalid</span>
+                    </label>
+                    <input class="bg-white p-2 rounded-sm" type="text" name="name" id="name">
+                </div>
+                <div class="flex mb-2 flex-col">
+                    <label required class="text-lg font-medium flex w-full justify-between" for="surname">
+                        <span>Cognom <span class="text-red-500">*</span></span>
+                        <span id="surnameError" class="ml-auto text-red-500 text-sm opacity-0 font-bold" style="transition-duration: 300ms;"> Cognom invalid</span>
+                    </label>
+                    <input class="bg-white p-2 rounded-sm" type="text" name="surname" id="surname">
+                </div>
+                <div class="flex mb-2 flex-col">
+                    <label required class="text-lg font-medium flex w-full justify-between" for="email">
+                        <span>Email <span class="text-red-500">*</span></span>
+                        <span id="emailError" class="ml-auto text-red-500 text-sm opacity-0 font-bold" style="transition-duration: 300ms;"> Email invalid</span>
+                    </label>
+                    <input class="bg-white p-2 rounded-sm" type="email" name="email" id="email">
+                </div>
+                <div class="flex mb-2 flex-col">
+                    <label required class="text-lg font-medium flex w-full justify-between" for="gender">
+                        <span>Gènere <span class="text-red-500">*</span></span>
+                        <span id="genderError" class="ml-auto text-red-500 text-sm opacity-0 font-bold" style="transition-duration: 300ms;"> Gènere invalid</span>
+                    </label>
+                    <select class="bg-white p-2 rounded-sm" name="gender" id="gender">
+                        <option value="men">Home</option>
+                        <option value="woman">Dona</option>
+                        <option value="no-binary">No binari</option>
+                    </select>
+                </div>
+                <div class="flex mb-2 flex-col">
+                    <label required class="text-lg font-medium flex w-full justify-between" for="bDate">
+                        <span>Data de naixement <span class="text-red-500">*</span></span>
+                        <span id="bDateError" class="ml-auto text-red-500 text-sm opacity-0 font-bold" style="transition-duration: 300ms;"> Data de naixement invalida</span>
+                    </label>
+                    <input class="bg-white p-2 rounded-sm" type="date" name="bDate" id="bDate"></input>
+                </div>
+                <div class="flex mb-5 flex-col">
+                    <label class="text-lg font-medium" for="age">Edat</label>
+                    <input class="bg-white p-2 rounded-sm" disabled type="text" name="age" id="age">
+                </div>
+                <button disabled class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-all disabled:hover:bg-gray-200 disabled:opacity-50" id="sendRegister">Enviar</button>
+            </div>
+        </main>
+        <main id="joc" class="hidden">
+            <div id="jocQuiz">
+            </div>
+        </main>
+    </div>
+    <footer class="w-[95%] md:w-[70%] mx-auto bg-[#00000071] text-white flex justify-between p-2 md:p-5 mt-auto"><p>Curs 2n DAW ©</p> <button id="goStart">Anar al principi</button></footer>
+    <div id="changeColor" class="fixed top-1/2 left-1">
+        <div id="default" class="border border-white w-5 md:w-10 h-5 md:h-10 mb-1 bg-gray-500">&nbsp;</div>
+        <div id="green" class="border border-white w-5 md:w-10 h-5 md:h-10 mb-1 bg-green-500">&nbsp;</div>
+        <div id="blue" class="border border-white w-5 md:w-10 h-5 md:h-10 mb-1 bg-blue-500">&nbsp;</div>
+        <div id="red" class="border border-white w-5 md:w-10 h-5 md:h-10 bg-red-500">&nbsp;</div>
+    </div>
+    <div class="max-w-full fixed w-screen h-screen top-0 left-0 flex backdrop-blur-md transition-all opacity-0 -z-10" style="background-color: rgba(0, 0, 0, 0.3);transition-duration: 300ms;" id="popup">
+        <div class="shadow-lg text-center bg-gray-100 md:w-1/2 xl:w-1/3 mx-auto my-auto blur-none p-5">
+            <button class="absolute top-2 right-3" id="closePopup"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 my-auto" viewBox="0 0 512 512"><title>Close</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M368 368L144 144M368 144L144 368"/></svg></button>
+            <div id="textPopup">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
